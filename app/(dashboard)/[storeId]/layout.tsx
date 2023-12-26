@@ -13,7 +13,6 @@ params: { storeId: string}
 
     if (!userId){
         redirect('/sign-in');
-        console.log('No userID FOUND :: dashboard/layout¡¡');
     }
 
     const store = await prismadb.store.findFirst({
@@ -26,7 +25,6 @@ params: { storeId: string}
 
     if (!store){
         redirect('/');
-        console.log('No STORE FOUND :: dashboard/layout¡¡');
     }
 
     return(

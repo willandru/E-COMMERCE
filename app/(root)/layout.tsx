@@ -12,7 +12,6 @@ export default async function SetupLayout({
 
     if(!userId){
         redirect('/sign-in');
-        console.log('No userID FOUND¡¡ root/layout');
     }
 
     const store = await prismadb.store.findFirst({
@@ -22,6 +21,7 @@ export default async function SetupLayout({
     });
 
     if (store){
+
         redirect(`/${store.id}`);
     }
 
