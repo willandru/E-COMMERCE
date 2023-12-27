@@ -1,24 +1,30 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Heading } from "@/components/ui/heading";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Billboard } from "@prisma/client";
-import { Trash } from "lucide-react";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import * as z from "zod";
 import axios from "axios";
+import { useState } from "react";
+import { Billboard } from "@prisma/client";
+import { Trash } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useParams, useRouter } from "next/navigation";
+
+
+import { Heading } from "@/components/ui/heading";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { 
+    Form,
+    FormControl,
+    FormField, 
+    FormItem, 
+    FormLabel, 
+    FormMessage
+ } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alert-model";
-import { ApiAlert } from "@/components/ui/api-alert";
-import { useOrigin } from "@/hooks/use-origin";
 import ImageUpload from "@/components/ui/image-upload";
-import { url } from "inspector";
 
 
 
@@ -39,7 +45,6 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 
     const params = useParams();
     const router = useRouter();
-    const origin = useOrigin();
 
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
