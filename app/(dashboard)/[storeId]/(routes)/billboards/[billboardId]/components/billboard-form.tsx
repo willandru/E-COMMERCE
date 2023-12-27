@@ -17,6 +17,8 @@ import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-model";
 import { ApiAlert } from "@/components/ui/api-alert";
 import { useOrigin } from "@/hooks/use-origin";
+import ImageUpload from "@/components/ui/image-upload";
+import { url } from "inspector";
 
 
 
@@ -116,6 +118,24 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full">
+            <FormField 
+                control={form.control}
+                name="imageUrl"
+                render={({field}) => (
+                    <FormItem>
+                        <FormLabel>BAckground image</FormLabel>
+                        <FormControl>
+                            <ImageUpload 
+                             value={field.value ? [field.value]: []}
+                             disabled={loading}
+                             onChange={(url) => field.onChange(url)}
+                             onRemove={() => field.onChange("")}
+                            />
+                        </FormControl>
+                        <FormMessage />
+                    </FormItem>
+                )}
+                />
             <div className="grid grid-cols-3 gap-8">
                 <FormField 
                 control={form.control}
