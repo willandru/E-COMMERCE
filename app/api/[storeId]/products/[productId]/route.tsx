@@ -25,6 +25,8 @@ export async function GET (
                 color:true
             }
         });
+        console.log('[PRODUCT_GET]');
+
 
         return NextResponse.json(product);
         
