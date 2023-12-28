@@ -33,7 +33,7 @@ export async function POST(req:Request,
                 return new NextResponse("Size ID is required", { status: 400 });
             }
             
-            if (!images || !images.length ) {
+            if (!images || !images.length) {
                 return new NextResponse("Images are required", { status: 400 });
             }
             if (!params.storeId){

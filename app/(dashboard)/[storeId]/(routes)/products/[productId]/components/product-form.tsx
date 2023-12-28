@@ -49,6 +49,7 @@ interface ProductFormProps {
     initialData: Product & {
         images: Image[]
     } | null;
+    
     categories: Category[];
     colors: Color[];
     sizes: Size[];
